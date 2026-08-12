@@ -586,22 +586,14 @@ function make_slides(f) {
     log_responses : function() {
 
       exp.data_trials.push({
-
         trial_type     : "acceptability",
         order          : order++,
-
         response       : exp.sliderPost,
-
         norming_list   : NORMING_LIST,
-
         lexicalization : this.stim.lexicalization || null,
-
         sentence       : this.stim.sentence,
-
         structure      : this.stim.structure || null,
-
         item_type      : this.stim.item_type,
-
         sentence_id    : this.stim.unique_id
       });
 
@@ -624,19 +616,12 @@ function make_slides(f) {
     submit : function(e){
 
       exp.subj_data = {
-
         asses : $('input[name="assess"]:checked').val(),
-
         age : $("#age").val(),
-
         gender : $("#gender").val(),
-
         education : $("#education").val(),
-
         comments : $("#comments").val(),
-
         fairprice: $("#fairprice").val(),
-
         norming_list: NORMING_LIST
       };
 
@@ -656,17 +641,11 @@ function make_slides(f) {
     start : function() {
 
       exp.data = {
-
         "trials" : exp.data_trials,
-
         "catch_trials" : exp.catch_trials,
-
         "system" : exp.system,
-
         "subject_information" : exp.subj_data,
-
         "norming_list" : NORMING_LIST,
-
         "time_in_minutes" : (Date.now() - exp.startT) / 60000
       };
 
@@ -706,17 +685,11 @@ function init() {
 
 
   exp.system = {
-
     Browser : BrowserDetect.browser,
-
     OS : BrowserDetect.OS,
-
     screenH: screen.height,
-
     screenUH: exp.height,
-
     screenW: screen.width,
-
     screenUW: exp.width
   };
 
@@ -747,15 +720,9 @@ function init() {
 
 
   exp.slides = make_slides(exp);
-
-
   $('.slide').hide();
-
-
   $("#start_button").click(function() {
     exp.go();
   });
-
-
   exp.go();
 }
